@@ -31,7 +31,7 @@
                     <td> {{$producto->ventadeproduco}} </td>
                     <td> {{$producto->descuento}} </td>
                     <td>
-                        <a href="{{route('producto.edit', $producto->id)}}" class="btn btn-success btn-sm">Editar</a>
+                        <a href="{{route('producto.edit', $producto->id)}}" class="btn btn-success btn-sm">edit</a>
                         <form action="{{route('producto.destroy', $producto->id)}}" method="post" style="display: inline-block">
                             @csrf
                             @method('DELETE')

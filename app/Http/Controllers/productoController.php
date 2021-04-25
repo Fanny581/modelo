@@ -73,8 +73,8 @@ class productoController extends Controller
      */
     public function edit($id)
     {
-         //$producto = Producto::findOrFail($id);
-        // return view('producto.update')->with('producto', $producto);
+         $producto = Producto::findOrFail($id);
+         return view('producto.update')->with('producto', $producto);
         //
     }
 
@@ -87,15 +87,15 @@ class productoController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // $data = $request->validate([
-        // 'Nombredelproducto' => 'required',
-         //'codigodelproducto' => 'nullable',
-        //'preciodeventa' => 'nullable',
-        //'descuento' => 'nullable'
-        // ]);
-        // Producto::whereId($id)->update($data);
+        $data = $request->validate([
+        'Nombredelproducto' => 'required',
+         'codigodelproducto' => 'nullable',
+        'preciodeventa' => 'nullable',
+        'descuento' => 'nullable'
+         ]);
+         Producto::whereId($id)->update($data);
 
-         //return redirect('/producto')->with('success', 'producto modificado correctamente.');
+        return redirect('/producto')->with('success', 'producto modificado correctamente.');
  
     }
 
@@ -107,9 +107,9 @@ class productoController extends Controller
      */
     public function destroy($id)
     {
-         //$producto = Producto::findOrFail($id);
-         //$producto->delete(); //
-         //return redirect('/producto')->with('success', 'producto eliminado correctamente.');;
+         $producto = Producto::findOrFail($id);
+         $producto->delete(); 
+         return redirect('/producto')->with('success', 'producto eliminado correctamente.');;
 
     }
 }
